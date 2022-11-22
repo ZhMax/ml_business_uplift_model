@@ -1,0 +1,30 @@
+python -m venv venv
+.\venv\Scripts\activate
+
+
+pip install numpy==1.21.6
+pip install pandas==1.3.5
+pip install matplotlib==3.5.3
+pip install -U scikit-learn==1.0.2
+pip install scipy==1.7.3
+pip install Flask
+pip install scikit-uplift
+
+pip install catboost
+
+
+
+python flask_server.py
+
+cd ./ml_business_flask_api
+pip freeze > requirements.txt
+
+#From dir Course_work
+docker build -t ml_business_flask_api:v0.1 ml_business_flask_api/
+
+docker build -t ml_business_flask_api:v0.1 .
+
+docker images
+
+docker run -d -p 5000:5000 ml_business_flask_api:v0.1
+
